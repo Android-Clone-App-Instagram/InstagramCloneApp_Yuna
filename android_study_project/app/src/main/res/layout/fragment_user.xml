@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.UserFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:fitsSystemWindows="true"
+            tools:openDrawer="right">
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout = "@layout/activity_user_content"/>
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/nv_user_navigation_root"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity ="start"
+                android:fitsSystemWindows="true"
+                app:headerLayout="@layout/nav_header_user"
+                app:menu = "@menu/navigaion_view"/>
+
+        </androidx.drawerlayout.widget.DrawerLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
