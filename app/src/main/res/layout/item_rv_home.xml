@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
@@ -24,6 +23,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="id"
+            android:textStyle="bold"
+            android:id="@+id/tv_user_rv_home"
             android:textColor="@color/colorBlack"
             android:layout_marginLeft="8dp"
             android:layout_toRightOf="@id/img_user_rv_home"
@@ -46,6 +47,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:src="@color/colorBlack"
+        android:scaleType="centerCrop"
         android:id="@+id/img_content_rv_home"/>
 
     <RelativeLayout
@@ -104,16 +106,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="조회수"
-            android:id="@+id/tv_view_rv_home"
+            android:text="좋아요"
+            android:layout_marginLeft="8dp"
             android:textColor="@color/colorBlack"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="~님이 좋아합니다 "
+            android:layout_marginLeft="4dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="1111"
             android:id="@+id/tv_like_rv_home"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:text="개"/>
     </LinearLayout>
 
     <TextView
@@ -122,11 +132,33 @@
         android:text="id"
         android:textColor="@color/colorBlack"
         android:textStyle="bold"
+        android:layout_marginLeft="8dp"
         android:id="@+id/tv_id_rv_home"
+
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_text"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="content"
+        android:id="@+id/tv_content1_rv_home"
+        android:textColor="@color/colorBlack"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toRightOf="@id/tv_id_rv_home"
         app:layout_constraintTop_toBottomOf="@id/ll_text"/>
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="content"
+        android:id="@+id/tv_content2_rv_home"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_id_rv_home"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
