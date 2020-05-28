@@ -15,7 +15,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
@@ -122,44 +122,10 @@
                 android:text="프로필 수정"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 android:textColor="@color/colorBlack"
                 android:background="@drawable/btn_profile"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:id="@+id/img_story_add"
-                        app:civ_border_color="@color/colorGray"
-                        app:civ_border_width="2dp"
-                        android:tint="@color/colorGray"
-                        android:src="@drawable/ic_add_black_24dp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:textColor="@color/colorBlack"
-                        app:layout_constraintTop_toBottomOf="@id/img_story_add"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        android:text="새로 만들기"
-                        android:layout_marginTop="4dp"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
@@ -167,69 +133,38 @@
                         android:id="@+id/rv_story_user"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         android:orientation="horizontal"
-                        tools:listitem="@layout/item_rv_story"
+                        tools:listitem="@layout/item_rv_story_user"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"/>
 
-            </LinearLayout>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorGray"/>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:id="@+id/img_grid_img"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:backgroundTint="@color/colorWhite"
-                    android:drawableTint="@drawable/selected_btn_user"
-                    android:src="@drawable/ic_add_circle_outline_black_24dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/img_with_img"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageButton
-                    android:id="@+id/img_with_img"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:backgroundTint="@color/colorWhite"
-                    android:drawableTint="@drawable/selected_btn_user"
-                    android:src="@drawable/ic_add_circle_outline_black_24dp"
-                    app:layout_constraintStart_toEndOf="@id/img_grid_img"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorGray"/>
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_grid"
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:nestedScrollingEnabled="false"
-                tools:listitem="@layout/item_grid" />
+                android:layout_height="50dp"
+                app:tabIconTint="@color/colorBlack"
+                app:tabIndicatorColor="@color/colorBlack"
+                app:tabMode="fixed"
+                app:tabGravity="fill"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_with"
+
+            <androidx.viewpager.widget.ViewPager
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:nestedScrollingEnabled="false"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="3"
-                tools:listitem="@layout/item_grid" />
+                android:layout_height="400dp"
+                android:id="@+id/viewpager"/>
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
+
+
 </FrameLayout>

@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_user.view.*
 
 class ImgViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
-    val img = itemView.findViewById<ImageView>(R.id.img_grid_img)
+    val img = itemView.findViewById<ImageView>(R.id.img_grid_item)
     fun bind(Data: ImgData)
     {
         Glide.with(itemView).load(Data.img).into(img)

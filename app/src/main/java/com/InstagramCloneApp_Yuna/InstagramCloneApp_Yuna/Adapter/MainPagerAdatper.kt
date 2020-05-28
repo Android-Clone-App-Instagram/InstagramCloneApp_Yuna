@@ -20,4 +20,13 @@ class MainPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm,
             else-> UserFragment()
         }
     }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        val title = when(position)
+        {
+            0->"Grid"
+            else->"With"
+        }
+        return title
+    }
 }
