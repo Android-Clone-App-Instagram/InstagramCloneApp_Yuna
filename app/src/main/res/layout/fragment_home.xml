@@ -1,56 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.HomeFragment">
 
 
-    <androidx.core.widget.NestedScrollView
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fillViewport="true"
-        android:gravity ="center"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_toolbar"
+           android:padding="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorGray"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_story"
-                android:layout_width="match_parent"
+            <TextView
+                android:textSize="18sp"
+                android:textStyle="bold"
+                  app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:nestedScrollingEnabled="false"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_rv_story" />
+                android:text="Instagram"
+                android:textColor="@color/colorBlack"
+                android:gravity="center_horizontal"
+                android:maxEms="15"/>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorGray"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
+
+
+
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rv_home"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="vertical"
-            android:nestedScrollingEnabled="false"
-            tools:listitem="@layout/item_rv_home"/>
+            android:fillViewport="true"
+            android:gravity ="center"
+            >
 
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-</FrameLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorGray"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_rv_story" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorGray"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rv_home"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_rv_home"/>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+
+
+</LinearLayout>

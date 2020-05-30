@@ -1,11 +1,14 @@
 package com.InstagramCloneApp_Yuna.InstagramCloneApp_Yuna.Fragment
 
+import android.app.ActionBar
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toolbar
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
@@ -19,9 +22,13 @@ import com.InstagramCloneApp_Yuna.InstagramCloneApp_Yuna.Recycler.ImgAdapter
 import com.InstagramCloneApp_Yuna.InstagramCloneApp_Yuna.Recycler.StoryAdapter
 import com.InstagramCloneApp_Yuna.InstagramCloneApp_Yuna.Recycler.UserStoryAdapter
 import com.bumptech.glide.Glide
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_grid.*
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_user.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 /**
  * A simple [Fragment] subclass.
@@ -40,6 +47,7 @@ class UserFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_user, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -71,14 +79,52 @@ class UserFragment : Fragment() {
         tv_post.text = GridFragment().imgdatas.size.toString()
 
 
+
+        val bottomSheet: BottomSheetBehavior<View> = BottomSheetBehavior.from(bottom_sheet_view)
+        bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
+        bottomSheet.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback(){
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+
+            }
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                when(newState){
+                    BottomSheetBehavior.STATE_COLLAPSED -> {
+                        bottom_sheet_blur.visibility = View.VISIBLE
+                        bottom_sheet_view.visibility = View.VISIBLE
+                    }
+                    BottomSheetBehavior.STATE_HIDDEN -> {
+                        bottom_sheet_blur.visibility = View.INVISIBLE
+                        bottom_sheet_view.visibility = View.INVISIBLE
+                    }
+                }
+            }
+        })
+
+
+
+          //  bottomSheet.state = BottomSheetBehavior.STATE_COLLAPSED
+
+
+
+
+
+        bottom_sheet_blur.setOnClickListener{
+            bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
+        }
+
         tab.getTabAt(0)?.setIcon(tablist.get(0))
         tab.getTabAt(1)?.setIcon(tablist.get(1))
+
+
+
 
         }
 
 
 
     }
+
+
 
 
 
