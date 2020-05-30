@@ -5,8 +5,10 @@ import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import android.widget.Toolbar
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.GridLayoutManager
@@ -50,7 +52,7 @@ class UserFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
+        var toolbar = view!!.findViewById<androidx.appcompat.widget.Toolbar>(R.id.lab3_toolbar)
         val tablist = arrayOf(R.drawable.grid, R.drawable.user)
         Glide.with(view!!.context).load( "https://t1.daumcdn.net/liveboard/holapet/0e5f90af436e4c218343073164a5f657.JPG").into(img_user)
 
@@ -101,8 +103,20 @@ class UserFragment : Fragment() {
         })
 
 
+        toolbar.setOnMenuItemClickListener(
+            {
+                if(it.itemId==R.id.action_search)
+                {
+                    Toast.makeText(view!!.context, "버튼눌림", Toast.LENGTH_SHORT).show()
+                    bottomSheet.state = BottomSheetBehavior.STATE_COLLAPSED
+                }
+                true
+            }
+        )
 
-          //  bottomSheet.state = BottomSheetBehavior.STATE_COLLAPSED
+
+
+
 
 
 
