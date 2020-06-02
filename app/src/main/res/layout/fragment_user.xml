@@ -1,234 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.UserFragment"
-    android:fitsSystemWindows="true"
-    android:fillViewport="true"
     android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/lab3_appbar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/lab3_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbar_user"
+            android:padding="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            android:layout_height="wrap_content">
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar"
+
+            <TextView
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="_yunakim"
+                android:drawableRight="@drawable/ic_expand_more_black_24dp"
+                android:textColor="@color/colorBlack"
+                android:gravity="center_horizontal"/>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:id="@+id/toolbar_user_menu"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_dehaze_black_24dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:fillViewport="true"
+          app:layout_constraintTop_toBottomOf="@id/lab3_toolbar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/lab3_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:layout_constraintTop_toBottomOf="@id/lab3_toolbar"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/lab3_toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:menu="@menu/user_actionbar"
-                    app:layout_collapseMode="parallax"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                    app:layout_scrollFlags="scroll|enterAlways">
-
-                    <TextView
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="_yunakim"
-                        android:drawableRight="@drawable/ic_expand_more_black_24dp"
-                        android:textColor="@color/colorBlack"
-                        android:gravity="center_horizontal"
-                        android:maxEms="15"/>
-
-
-                </androidx.appcompat.widget.Toolbar>
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_content"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ll_content"
-                    android:layout_below ="@id/lab3_toolbar"
-                    android:orientation="vertical">
+                    android:padding="20dp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="20dp">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@color/colorBlack"
+                        android:id="@+id/img_user"/>
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@color/colorBlack"
-                            android:id="@+id/img_user"/>
-
-                        <RelativeLayout
-                            android:layout_gravity="center_vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_marginLeft="40dp"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/tv_post"
-                                android:textColor="@color/colorBlack"
-                                android:text="1000"
-                                android:layout_centerHorizontal="true"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/tv_post"
-                                android:text="게시물"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="4dp"
-                                android:textColor="@color/colorBlack"/>
-                        </RelativeLayout>
-                        <RelativeLayout
-                            android:layout_width="wrap_content"
-                            android:layout_marginLeft="40dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/tv_follower"
-                                android:textColor="@color/colorBlack"
-                                android:text="1000"
-                                android:layout_centerHorizontal="true"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/tv_follower"
-                                android:text="팔로워"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="4dp"
-                                android:textColor="@color/colorBlack"/>
-                        </RelativeLayout>
-                        <RelativeLayout
+                    <RelativeLayout
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_height="wrap_content">
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="40dp"
-                            android:layout_gravity="center_vertical">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/tv_following"
-                                android:textColor="@color/colorBlack"
-                                android:text="1000"
-                                android:layout_centerHorizontal="true"
-                                android:textStyle="bold"/>
+                            android:id="@+id/tv_post"
+                            android:textColor="@color/colorBlack"
+                            android:text="1000"
+                            android:layout_centerHorizontal="true"
+                            android:textStyle="bold"/>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/tv_following"
-                                android:text="팔로잉"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="4dp"
-                                android:textColor="@color/colorBlack"/>
-                        </RelativeLayout>
-                    </LinearLayout>
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_post"
+                            android:text="게시물"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/colorBlack"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_follower"
+                            android:textColor="@color/colorBlack"
+                            android:text="1000"
+                            android:layout_centerHorizontal="true"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_follower"
+                            android:text="팔로워"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/colorBlack"/>
+                    </RelativeLayout>
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="김유나"
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="20dp"/>
+                        android:layout_marginLeft="40dp"
+                        android:layout_gravity="center_vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_following"
+                            android:textColor="@color/colorBlack"
+                            android:text="1000"
+                            android:layout_centerHorizontal="true"
+                            android:textStyle="bold"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="😃😃😃"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="20dp"/>
-
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="10dp"
-                        android:text="프로필 수정"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/colorBlack"
-                        android:background="@drawable/btn_profile"/>
-
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/rv_story_user"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        android:orientation="horizontal"
-                        tools:listitem="@layout/item_rv_story_user"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"/>
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/colorGray"/>
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/colorGray"/>
-
-
-
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_following"
+                            android:text="팔로잉"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/colorBlack"/>
+                    </RelativeLayout>
                 </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="김유나"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="😃😃😃"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="20dp"/>
 
 
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tab"
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:text="프로필 수정"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:background="@drawable/btn_profile"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:tabIconTint="@color/colorBlack"
-                    app:tabIndicatorColor="@color/colorBlack"
-                    app:tabMode="fixed"
-                    android:layout_gravity="bottom"
-                    app:layout_collapseMode="pin"
-                    app:tabGravity="fill"/>
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-        </com.google.android.material.appbar.AppBarLayout>
+                    android:id="@+id/rv_story_user"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
+                    tools:listitem="@layout/item_rv_story_user"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
 
-        <androidx.viewpager.widget.ViewPager
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorGray"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorGray"/>
+
+
+
+            </LinearLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below = "@id/tab"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:id="@+id/viewpager"
-            />
+            app:tabIconTint="@color/colorBlack"
+            app:tabIndicatorColor="@color/colorBlack"
+            app:tabMode="fixed"
+            android:layout_gravity="bottom"
+            app:layout_collapseMode="pin"
+            app:tabGravity="fill"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:id="@+id/viewpager"
+        />
 
 
     <!-- bottom sheet가 보여지면 뒷배경 처리 -->
-    <View
-        android:id="@+id/bottom_sheet_blur"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#aa000000"
-        android:visibility="gone"/>
+            <View
+                android:id="@+id/bottom_sheet_blur"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#aa000000"
+                android:visibility="gone"/>
 
     <!-- bottom sheet 뷰 : xml 파일로 만들어서 include 해주기 -->
     <include
         android:id="@+id/bottom_sheet_view"
         layout="@layout/bottomsheet_user" />
 
-
-
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
